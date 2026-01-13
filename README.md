@@ -45,8 +45,8 @@ public void CreateCar()
 ├──────────────────────────────┤
 │ CreateCar()                  │
 │ ───────────────────────────  │
-│ carPrice = 123               │  ← value type
 │ car = 0x01AF34               │  ← reference
+│ carPrice = 123               │  ← value type
 └──────────────────────────────┘
                 │
                 │ reference
