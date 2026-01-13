@@ -38,25 +38,23 @@ public void CreateCar()
 ```
 ┌──────────────────────────────┐
 │            STACK             │
-│  (Method Call Frames)        │
+├──────────────────────────────┤
+│ SetPrice(int price)          │  ← top of stack
+│ ───────────────────────────  │
+│ price = 10000                │  ← value type
 ├──────────────────────────────┤
 │ CreateCar()                  │
 │ ───────────────────────────  │
 │ carPrice = 123               │  ← value type
-│ car = 0x01AF34               │  ← reference (pointer)
-│                              │
-│ SetPrice(price)              │
-│ ───────────────────────────  │
-│ price = 10000                │  ← value type (argument)
+│ car = 0x01AF34               │  ← reference
 └──────────────────────────────┘
                 │
                 │ reference
                 ▼
 ┌──────────────────────────────┐
 │             HEAP             │
-│  (Objects & Data)            │
 ├──────────────────────────────┤
-│ Car object @ 0x01AF34         │
+│ Car object @ 0x01AF34        │
 │ ───────────────────────────  │
 │ Price = 10000                │  ← field stored in heap
 └──────────────────────────────┘
