@@ -60,7 +60,7 @@ public void CreateCar()
 └──────────────────────────────┘
 ```
 
-# links/videos
+links/videos:
 
 - [WHY IS THE HEAP SO SLOW?](https://www.youtube.com/watch?v=ioJkA7Mw2-U)
 - [Inside C#: Stack & Heap, Value Types, Boxing, stackalloc + More](https://www.youtube.com/watch?v=cCsVY0Ixx04)
@@ -71,14 +71,23 @@ A running program (process) needs key resources like CPU registers (for fast dat
 
 Every process has at least one thread that is responsible for executing the application code, and that thread is called Main Thread. So, every application by default is a single-threaded application.
 
+## context switching
+
+Thread context switching is the CPU's process of pausing one thread, saving its execution state (like registers and program counter), and loading the state of another thread to continue execution, enabling multitasking within a single process. It's faster than process switching because threads share the same memory space, requiring less data to be saved and restored, only involving changes to execution context (registers, stack pointers)
+
+## Multithreading
+
+True Multithreading: The kernel can schedule multiple threads across different processors in a multi-core system.
+
+If one thread blocks (e.g., waiting for I/O), the kernel can switch to another thread.
+
+Thread Safety: 
+
 Threads share the same memory space as the parent process, including its code, data, and resources. However, threads have their own execution context, including a program counter, registers, and stack. Each thread has its own dedicated stack, while all threads within a process share the same heap memory
 
-Advantages:
+The shared nature of the heap is why synchronization mechanisms (like lock, Monitor, Mutex, and Semaphore) are necessary in C#. Without them, multiple threads accessing and modifying shared heap data can lead to race conditions and data corruption. 
 
-- True Multithreading: The kernel can schedule multiple threads across different processors in a multi-core system.
-- No blocking in a single thread affects others: if one thread blocks (e.g., waiting for I/O), the kernel can switch to another thread.
-
-# links/videos
+links/videos:
 
 - [Multithreading in C#](https://medium.com/@yashdesai281/multithreading-in-c-b80332b777b1)
 
