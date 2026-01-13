@@ -1,4 +1,4 @@
-# 1. Core .NET & C# Mastery
+# 1. Core .NET & C#
 
 ## Value vs Reference types
 
