@@ -1,17 +1,45 @@
-# Tech Lead .NET Interview
+# 1. Core .NET & C# Mastery
 
----
+## Value vs Reference types
 
-## 1. Core .NET & C# Mastery
+Types:
 
-* Value types vs reference types and memory allocation
+- Value: int, double, char, bool, struct, enum,...
+- Reference: object, string, class, array,...
+
+Memory allocation:
+
+- Value types are allocated either on the stack or the heap depending on where they are created.
+- Reference types are always allocated on the heap and garbage-collected.
+
+```cs
+public class Car 
+{
+    public int Price = 123; 
+
+    public void SetPrice(int price) // argument value type is allocate in the stack 
+    {
+        Price = price
+    }
+}
+...
+public void CreateCar()
+{
+    int carPrice = 123; // carPrice is allocate in the stack 
+    var car = new Car(); // car is allocated the heap
+    car.SetPrice(10000) // car.Price is also allocated in the heap
+}
+```
+
+## Async/await
+
 * Async/await internals (Task vs ValueTask, thread pool)
 * Exception handling best practices
 * Dependency Injection (lifetimes, scopes, pitfalls)
 
 ---
 
-## 1a. Object-Oriented Programming (OOP)
+# 1a. Object-Oriented Programming (OOP)
 
 * Encapsulation, inheritance, polymorphism, abstraction
 * Composition over inheritance
@@ -22,7 +50,7 @@
 
 ---
 
-## 2. ASP.NET Core & Web APIs
+# 2. ASP.NET Core & Web APIs
 
 * Request pipeline & middleware
 * Minimal APIs vs MVC Controllers
@@ -36,7 +64,7 @@
 
 ---
 
-## 2a. Algorithms & Data Structures
+# 2a. Algorithms & Data Structures
 
 * Big-O notation and complexity analysis
 * Arrays, Lists, Stacks, Queues
@@ -45,7 +73,7 @@
 
 ---
 
-## 2b. Design Patterns
+# 2b. Design Patterns
 
 * Creational patterns (Factory, Builder, Singleton)
 * Structural patterns (Adapter, Decorator, Facade)
@@ -56,7 +84,7 @@
 
 ---
 
-## 3. Architecture & Design
+# 3. Architecture & Design
 
 * SOLID principles (with real-world tradeoffs)
 * Clean Architecture / Onion / Hexagonal
@@ -70,7 +98,7 @@
 
 ---
 
-## 4. Data & Persistence
+# 4. Data & Persistence
 
 * Entity Framework Core internals
 * Tracking vs No-Tracking queries
@@ -82,7 +110,7 @@
 
 ---
 
-## 5. Security Foundations
+# 5. Security Foundations
 
 * Cryptography basics (hashing vs encryption)
 * Symmetric vs asymmetric keys
@@ -95,7 +123,7 @@
 
 ---
 
-## 6. Performance & Scalability
+# 6. Performance & Scalability
 
 * Profiling tools (dotnet-counters, dotnet-trace)
 * Thread pool starvation
@@ -108,7 +136,7 @@
 
 ---
 
-## 7. Observability & Reliability
+# 7. Observability & Reliability
 
 * Structured logging (Serilog)
 * Logs vs metrics vs traces
@@ -119,7 +147,7 @@
 
 ---
 
-## 8. Testing Strategy
+# 8. Testing Strategy
 
 * Unit testing principles (fast, isolated, deterministic)
 * Writing testable code
@@ -130,7 +158,7 @@
 
 ---
 
-## 8a. Integration Testing
+# 8a. Integration Testing
 
 * Integration testing goals and scope
 * ASP.NET Core WebApplicationFactory
@@ -139,7 +167,7 @@
 
 ---
 
-## 9. Code Review Excellence
+# 9. Code Review Excellence
 
 * Goals of code review (quality, learning, risk reduction)
 * What to review vs what to ignore
@@ -153,7 +181,7 @@
 
 ---
 
-## 11. Interview Readiness
+# 11. Interview Readiness
 
 * Prepare system design examples from real projects
 * Practice explaining architecture verbally
