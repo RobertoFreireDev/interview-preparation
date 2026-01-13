@@ -65,11 +65,56 @@ public void CreateCar()
 - [WHY IS THE HEAP SO SLOW?](https://www.youtube.com/watch?v=ioJkA7Mw2-U)
 - [Inside C#: Stack & Heap, Value Types, Boxing, stackalloc + More](https://www.youtube.com/watch?v=cCsVY0Ixx04)
 
+## Threads and Process
+
+A running program (process) needs key resources like CPU registers (for fast data storage), a Program Counter (to track the next instruction), and a stack (for function calls, local variables, and return addresses) to manage its execution, along with other elements like memory and I/O. These elements define the process's state and allow the operating system to manage and switch between different tasks efficiently
+
+Every process has at least one thread that is responsible for executing the application code, and that thread is called Main Thread. So, every application by default is a single-threaded application.
+
+Threads share the same memory space as the parent process, including its code, data, and resources. However, threads have their own execution context, including a program counter, registers, and stack. Each thread has its own dedicated stack, while all threads within a process share the same heap memory
+
+Advantages:
+
+- True Multithreading: The kernel can schedule multiple threads across different processors in a multi-core system.
+- No blocking in a single thread affects others: if one thread blocks (e.g., waiting for I/O), the kernel can switch to another thread.
+
+# links/videos
+
+- [Multithreading in C#](https://medium.com/@yashdesai281/multithreading-in-c-b80332b777b1)
+
 ## Async/await
 
-* Async/await internals (Task vs ValueTask, thread pool)
-* Exception handling best practices
-* Dependency Injection (lifetimes, scopes, pitfalls)
+Async/await internals (Task vs ValueTask, thread pool)
+
+## Thread starvation
+
+Thread starvation in C# occurs when a process runs out of available threads in its thread pool to handle new work items, leading to significant delays, increased latency, and potential application timeouts, even if the CPU usage is low
+
+• 𝗖𝗮𝗻 𝗰𝗮𝘂𝘀𝗲 𝗧𝗵𝗿𝗲𝗮𝗱𝗣𝗼𝗼𝗹 𝘀𝘁𝗮𝗿𝘃𝗮𝘁𝗶𝗼𝗻 𝘂𝗻𝗱𝗲𝗿 l𝗼𝗮𝗱: The ThreadPool has limited threads. Under high concurrency, new tasks might wait a long time to be scheduled.
+
+• 𝗜𝗻𝗰𝗿𝗲𝗮𝘀𝗲𝘀 𝗹𝗮𝘁𝗲𝗻𝗰𝘆 𝘃𝗶𝗮 𝘁𝗵𝗿𝗲𝗮𝗱-𝘀𝘄𝗶𝘁𝗰𝗵𝗶𝗻𝗴: Moving work to another thread adds context-switch overhead — costly in high-throughput systems.
+
+Examples:
+
+```cs
+// Synchronous (blocking) - can cause thread starvation
+var user = _db.Users.First();
+
+// Asynchronous (non-blocking) - recommended
+var user = await _db.Users.FirstAsync();
+```
+
+```cs
+// Synchronous (blocking)
+var users = GetUsersAsync().Result;
+
+// Asynchronous (non-blocking) - recommended
+var users = await GetUsersAsync();
+```
+
+## Exception handling best practices
+
+##  Dependency Injection (lifetimes, scopes, pitfalls)
 
 ---
 
