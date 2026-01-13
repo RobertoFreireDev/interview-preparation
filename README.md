@@ -1,1 +1,165 @@
-# Sharing-my-DotNet-experience-no-bullshit-
+# Tech Lead .NET Interview
+
+---
+
+## 1. Core .NET & C# Mastery
+
+* Value types vs reference types and memory allocation
+* Async/await internals (Task vs ValueTask, thread pool)
+* Exception handling best practices
+* Dependency Injection (lifetimes, scopes, pitfalls)
+
+---
+
+## 1a. Object-Oriented Programming (OOP)
+
+* Encapsulation, inheritance, polymorphism, abstraction
+* Composition over inheritance
+* Interface vs abstract class tradeoffs
+* Immutability and side-effect control
+* Object lifetime and ownership
+* Domain modeling with OOP
+
+---
+
+## 2. ASP.NET Core & Web APIs
+
+* Request pipeline & middleware
+* Minimal APIs vs MVC Controllers
+* REST principles & API design
+* API versioning strategies
+* Model binding & validation
+* Filters (action, resource, exception)
+* Authentication & Authorization (JWT, OAuth2, OpenID Connect)
+* Rate limiting & throttling
+* CORS & security headers
+
+---
+
+## 2a. Algorithms & Data Structures
+
+* Big-O notation and complexity analysis
+* Arrays, Lists, Stacks, Queues
+* Dictionaries / HashMaps
+* Sorting algorithms (quick, merge, heap – concepts)
+
+---
+
+## 2b. Design Patterns
+
+* Creational patterns (Factory, Builder, Singleton)
+* Structural patterns (Adapter, Decorator, Facade)
+* Behavioral patterns (Strategy, Observer, Command)
+* Dependency Injection pattern
+* Anti-patterns and overengineering
+* Applying patterns pragmatically
+
+---
+
+## 3. Architecture & Design
+
+* SOLID principles (with real-world tradeoffs)
+* Clean Architecture / Onion / Hexagonal
+* Monolith vs Modular Monolith vs Microservices
+* Bounded contexts & domain-driven design basics
+* Event-driven architecture
+* CQRS (when to use / when not to)
+* Saga pattern & eventual consistency
+* Idempotency strategies
+* API Gateway patterns
+
+---
+
+## 4. Data & Persistence
+
+* Entity Framework Core internals
+* Tracking vs No-Tracking queries
+* Dapper vs EF Core tradeoffs
+* SQL performance basics
+* Indexing strategies
+* Transactions & isolation levels
+* Caching strategies & cache invalidation
+
+---
+
+## 5. Security Foundations
+
+* Cryptography basics (hashing vs encryption)
+* Symmetric vs asymmetric keys
+* Password storage best practices
+* JWT structure & common pitfalls
+* Token expiration & refresh tokens
+* Secrets management (Key Vault, env vars)
+* OWASP Top 10
+* Secure API design principles
+
+---
+
+## 6. Performance & Scalability
+
+* Profiling tools (dotnet-counters, dotnet-trace)
+* Thread pool starvation
+* Async bottlenecks & deadlocks
+* Load balancing strategies
+* Horizontal vs vertical scaling
+* Caching & CDN usage
+* Background processing (Hosted Services)
+* Messaging systems (RabbitMQ and Service Bus)
+
+---
+
+## 7. Observability & Reliability
+
+* Structured logging (Serilog)
+* Logs vs metrics vs traces
+* Health checks
+* Distributed tracing (OpenTelemetry)
+* Alerting strategies
+* Resiliency patterns (Polly – retries, circuit breakers)
+
+---
+
+## 8. Testing Strategy
+
+* Unit testing principles (fast, isolated, deterministic)
+* Writing testable code
+* Mocking vs fakes vs stubs
+* Mocking pitfalls
+* Testing async code
+* Code coverage strategy (what matters, what doesn’t)
+
+---
+
+## 8a. Integration Testing
+
+* Integration testing goals and scope
+* ASP.NET Core WebApplicationFactory
+* TestContainers (databases, queues)
+* In-memory vs real infrastructure
+
+---
+
+## 9. Code Review Excellence
+
+* Goals of code review (quality, learning, risk reduction)
+* What to review vs what to ignore
+* Reviewing for readability, maintainability, and correctness
+* Identifying hidden bugs and edge cases
+* Performance and security review basics
+* Consistency with architecture and standards
+* Giving constructive, actionable feedback
+* Handling disagreements and pushing back respectfully
+* Scaling code reviews across teams
+
+---
+
+## 11. Interview Readiness
+
+* Prepare system design examples from real projects
+* Practice explaining architecture verbally
+* Prepare "why we chose X over Y" stories
+* Prepare failure & incident stories
+* Review common Tech Lead interview questions
+* Prepare thoughtful questions for interviewers
+
+---
