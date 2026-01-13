@@ -35,6 +35,8 @@ public void CreateCar()
 }
 ```
 
+Abstract representation:
+
 ```
 ┌──────────────────────────────┐
 │            STACK             │
@@ -71,7 +73,7 @@ A running program (process) needs key resources like CPU registers (for fast dat
 
 Every process has at least one thread that is responsible for executing the application code, and that thread is called Main Thread. So, every application by default is a single-threaded application.
 
-## context switching
+## Context switching
 
 Thread context switching is the CPU's process of pausing one thread, saving its execution state (like registers and program counter), and loading the state of another thread to continue execution, enabling multitasking within a single process. It's faster than process switching because threads share the same memory space, requiring less data to be saved and restored, only involving changes to execution context (registers, stack pointers)
 
