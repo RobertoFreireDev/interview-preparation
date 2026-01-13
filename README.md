@@ -4,13 +4,17 @@
 
 Types:
 
-- Value: int, double, char, bool, struct, enum,...
+- Value: int, double, char, bool, struct, enum, Span<T>...
 - Reference: object, string, class, array,...
 
 Memory allocation:
 
 - Value types are allocated either on the stack or the heap depending on where they are created.
-- Reference types are always allocated on the heap and garbage-collected.
+- Reference types are always allocated on the heap.
+
+Only the heap is garbage-collected.
+
+Stack has automatic deallocation: when a function or method is called, a dedicated block of memory called a "stack frame" is pushed onto the top of the stack to hold its local variables, parameters, and return address. When the function exits, its entire stack frame is simply "popped off" the stack, and all the memory it used is instantly reclaimed.
 
 ```cs
 public class Car 
@@ -29,6 +33,33 @@ public void CreateCar()
     var car = new Car(); // car is allocated the heap
     car.SetPrice(10000) // car.Price is also allocated in the heap
 }
+```
+
+```
+┌──────────────────────────────┐
+│            STACK             │
+│  (Method Call Frames)        │
+├──────────────────────────────┤
+│ CreateCar()                  │
+│ ───────────────────────────  │
+│ carPrice = 123               │  ← value type
+│ car = 0x01AF34               │  ← reference (pointer)
+│                              │
+│ SetPrice(price)              │
+│ ───────────────────────────  │
+│ price = 10000                │  ← value type (argument)
+└──────────────────────────────┘
+                │
+                │ reference
+                ▼
+┌──────────────────────────────┐
+│             HEAP             │
+│  (Objects & Data)            │
+├──────────────────────────────┤
+│ Car object @ 0x01AF34         │
+│ ───────────────────────────  │
+│ Price = 10000                │  ← field stored in heap
+└──────────────────────────────┘
 ```
 
 # links/videos
