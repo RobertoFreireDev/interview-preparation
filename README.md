@@ -31,6 +31,11 @@ public void CreateCar()
 }
 ```
 
+# links/videos
+
+- [WHY IS THE HEAP SO SLOW?](https://www.youtube.com/watch?v=ioJkA7Mw2-U)
+- [Inside C#: Stack & Heap, Value Types, Boxing, stackalloc + More](https://www.youtube.com/watch?v=cCsVY0Ixx04)
+
 ## Async/await
 
 * Async/await internals (Task vs ValueTask, thread pool)
