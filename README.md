@@ -123,15 +123,17 @@ list.Add(10);
 
 ## Threads
 
-- Threads are a way to inform the OS that specific parts of a program can be executed concurrently (Multiple threads can point to same function)
-- Thread is a lightweight version of a process, easier and faster to create
 - Threads points to code/function in memory.
+- Threads are a way to inform the OS that specific parts of a program can be executed concurrently (note: multiple threads can point to same function)
+- Thread is a lightweight version of a process, easier and faster to create
 
-## Multithreading
+## Multithreading and Parallel
 
-True Multithreading: The kernel can schedule multiple threads across different processors in a multi-core system.
+Parallel execution occurs when the operating system kernel schedules multiple threads to run simultaneously on different CPU cores in a multi-core system. In this case, threads make progress at the same time, achieving true parallelism.
 
-If one thread blocks (e.g., waiting for I/O), the kernel can switch to another thread.
+Multithreading refers to a program being composed of multiple threads of execution. Multithreading can exist on both single-core and multi-core systems.
+On a single-core CPU, multithreading provides concurrency, where threads take turns executing via CPU time-slicing, giving the illusion of simultaneous execution.
+On a multi-core CPU, multithreading may result in true parallel execution when threads run on different cores.
 
 links/videos:
 
@@ -139,21 +141,21 @@ links/videos:
 
 ## Context switching
 
-Thread context switching is the CPU's process of pausing one thread, saving its execution state (like registers and program counter), and loading the state of another thread to continue execution, enabling multitasking within a single process.
+Thread context switching is the CPU's process of pausing one thread, saving its execution state (like registers and program counter), and loading the state of another thread to continue execution.
 
 ## Task and thread pool
 
-Async/await internals (Task vs ValueTask, thread pool)
+- The Thread Pool is a managed set of worker threads maintained by the runtime. The purpose is to reuse threads instead of creating/destroying them.
+- Task represents an asynchronous operation
+- async/await transforms methods into state machines that suspend without blocking threads, resuming execution via the thread pool or a synchronization context
 
 ## Blocking and non-blocking thread
 
 Blocking means the thread is waiting, not that the CPU is idle. The CPU will run other threads or processes. 
 
-If the blocked thread is the UI thread, the application becomes unresponsive, because input handling and rendering depend on that thread.
+If the blocked thread is the UI thread, the application becomes unresponsive, because input handling and UI rendering depend on that thread.
 
 Also, blocking threads can lead to thread starvation in systems that rely on a limited thread pool.
-
-When many threads are blocked waiting for I/O (such as database or network calls), available threads are exhausted, preventing new requests from being processed and significantly reducing application throughput.
 
 Examples:
 
