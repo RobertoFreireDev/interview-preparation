@@ -1,3 +1,8 @@
+
+## TO DO:
+
+https://github.com/RobertoFreireDev/Interview-Full-Stack/tree/main/dotnet
+
 # Core .NET & C#
 
 ## Value vs Reference types
@@ -243,10 +248,9 @@ https://github.com/RobertoFreireDev/Exception-handling-in-a-DotNet-Web-API
 
 # Algorithms & Data Structures
 
-* Big-O notation and complexity analysis
-* Arrays, Lists, Stacks, Queues
-* Dictionaries / HashMaps
-* Sorting algorithms (quick, merge, heap – concepts)
+https://github.com/RobertoFreireDev/DSA
+
+https://github.com/RobertoFreireDev/Algorithms_Data_Structures
 
 # Design Patterns
 
@@ -281,14 +285,12 @@ https://github.com/RobertoFreireDev/Exception-handling-in-a-DotNet-Web-API
 
 # Security Foundations
 
-* Cryptography basics (hashing vs encryption)
-* Symmetric vs asymmetric keys
-* Password storage best practices
-* JWT structure & common pitfalls
-* Token expiration & refresh tokens
-* Secrets management (Key Vault, env vars)
-* OWASP Top 10
-* Secure API design principles
+https://github.com/RobertoFreireDev/JWT
+
+https://github.com/RobertoFreireDev/oauth-github-dashboard
+
+
+
 
 # Performance & Scalability
 
