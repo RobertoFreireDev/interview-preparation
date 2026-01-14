@@ -183,6 +183,37 @@ The shared nature of the heap is why synchronization mechanisms (like lock, Moni
 
 ## Synchronization mechanisms
 
+Lock:
+
+The lock statement is the simplest and most commonly used synchronization mechanism. It ensures that only one thread can execute a block of code at a time by acquiring a mutual-exclusion lock on a given object. Automatically releases the lock, even if an exception occurs
+
+Lock is thread-based. Ownership is tied to a specific thread. For async/await, resume may occur on a different thread. So, Lock doesn't work with async/await.
+
+```cs
+lock (syncObject)
+{
+    // Critical section
+}
+```
+
+SemaphoreSlim: Async-compatible
+
+SemaphoreSlim allows a fixed number of threads to enter a critical section simultaneously
+
+```cs
+private static readonly SemaphoreSlim _semaphore = new(1);
+
+await _semaphore.WaitAsync();
+try
+{
+    await DoWorkAsync();
+}
+finally
+{
+    _semaphore.Release();
+}
+```
+
 ## Exception handling best practices
 
 ##  Dependency Injection (lifetimes, scopes, pitfalls)
