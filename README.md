@@ -1,4 +1,4 @@
-# 1. Core .NET & C#
+# Core .NET & C#
 
 ## Value vs Reference types
 
@@ -77,7 +77,7 @@ Not everything should be allocated on the stack:
 
 Note: struct can be passed by reference using ref, in or out
 
-# Boxing and Unboxing
+## Boxing and Unboxing
 
 Boxing is the process of converting a C# value type (like int, char, or struct) to a reference type (object or an interface)
 
@@ -218,9 +218,7 @@ finally
 
 ##  Dependency Injection (lifetimes, scopes, pitfalls)
 
----
-
-# 1a. Object-Oriented Programming (OOP)
+# Object-Oriented Programming (OOP)
 
 * Encapsulation, inheritance, polymorphism, abstraction
 * Composition over inheritance
@@ -229,9 +227,7 @@ finally
 * Object lifetime and ownership
 * Domain modeling with OOP
 
----
-
-# 2. ASP.NET Core & Web APIs
+# ASP.NET Core & Web APIs
 
 * Request pipeline & middleware
 * Minimal APIs vs MVC Controllers
@@ -243,18 +239,14 @@ finally
 * Rate limiting & throttling
 * CORS & security headers
 
----
-
-# 2a. Algorithms & Data Structures
+# Algorithms & Data Structures
 
 * Big-O notation and complexity analysis
 * Arrays, Lists, Stacks, Queues
 * Dictionaries / HashMaps
 * Sorting algorithms (quick, merge, heap – concepts)
 
----
-
-# 2b. Design Patterns
+# Design Patterns
 
 * Creational patterns (Factory, Builder, Singleton)
 * Structural patterns (Adapter, Decorator, Facade)
@@ -263,9 +255,7 @@ finally
 * Anti-patterns and overengineering
 * Applying patterns pragmatically
 
----
-
-# 3. Architecture & Design
+# Architecture & Design
 
 * SOLID principles (with real-world tradeoffs)
 * Clean Architecture / Onion / Hexagonal
@@ -277,9 +267,7 @@ finally
 * Idempotency strategies
 * API Gateway patterns
 
----
-
-# 4. Data & Persistence
+# Data & Persistence
 
 * Entity Framework Core internals
 * Tracking vs No-Tracking queries
@@ -289,9 +277,7 @@ finally
 * Transactions & isolation levels
 * Caching strategies & cache invalidation
 
----
-
-# 5. Security Foundations
+# Security Foundations
 
 * Cryptography basics (hashing vs encryption)
 * Symmetric vs asymmetric keys
@@ -302,9 +288,7 @@ finally
 * OWASP Top 10
 * Secure API design principles
 
----
-
-# 6. Performance & Scalability
+# Performance & Scalability
 
 * Profiling tools (dotnet-counters, dotnet-trace)
 * Thread pool starvation
@@ -315,9 +299,7 @@ finally
 * Background processing (Hosted Services)
 * Messaging systems (RabbitMQ and Service Bus)
 
----
-
-# 7. Observability & Reliability
+# Observability & Reliability
 
 * Structured logging (Serilog)
 * Logs vs metrics vs traces
@@ -326,9 +308,7 @@ finally
 * Alerting strategies
 * Resiliency patterns (Polly – retries, circuit breakers)
 
----
-
-# 8. Testing Strategy
+# Testing Strategy
 
 * Unit testing principles (fast, isolated, deterministic)
 * Writing testable code
@@ -337,18 +317,14 @@ finally
 * Testing async code
 * Code coverage strategy (what matters, what doesn’t)
 
----
-
-# 8a. Integration Testing
+# Integration Testing
 
 * Integration testing goals and scope
 * ASP.NET Core WebApplicationFactory
 * TestContainers (databases, queues)
 * In-memory vs real infrastructure
 
----
-
-# 9. Code Review Excellence
+# Code Review
 
 * Goals of code review (quality, learning, risk reduction)
 * What to review vs what to ignore
@@ -360,9 +336,7 @@ finally
 * Handling disagreements and pushing back respectfully
 * Scaling code reviews across teams
 
----
-
-# 11. Interview Readiness
+# Interview Readiness
 
 * Prepare system design examples from real projects
 * Practice explaining architecture verbally
@@ -370,5 +344,3 @@ finally
 * Prepare failure & incident stories
 * Review common Tech Lead interview questions
 * Prepare thoughtful questions for interviewers
-
----
