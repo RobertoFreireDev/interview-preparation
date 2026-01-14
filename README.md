@@ -116,15 +116,16 @@ var list = new List<int>();
 list.Add(10);
 ```
 
-## Threads and Process
+## Process
 
-A running program (process) needs key resources like CPU registers (for fast data storage), a Program Counter (to track the next instruction), and a stack (for function calls, local variables, and return addresses) to manage its execution, along with other elements like memory and I/O. These elements define the process's state and allow the operating system to manage and switch between different tasks efficiently
+- Process is a program in execution.
+- Every process has at least one thread (Main Thread)
 
-Every process has at least one thread that is responsible for executing the application code, and that thread is called Main Thread. So, every application by default is a single-threaded application.
+## Threads
 
-## Context switching
-
-Thread context switching is the CPU's process of pausing one thread, saving its execution state (like registers and program counter), and loading the state of another thread to continue execution, enabling multitasking within a single process. It's faster than process switching because threads share the same memory space, requiring less data to be saved and restored, only involving changes to execution context (registers, stack pointers)
+- Threads are a way to inform the OS that specific parts of a program can be executed concurrently (Multiple threads can point to same function)
+- Thread is a lightweight version of a process, easier and faster to create
+- Threads points to code/function in memory.
 
 ## Multithreading
 
@@ -132,32 +133,32 @@ True Multithreading: The kernel can schedule multiple threads across different p
 
 If one thread blocks (e.g., waiting for I/O), the kernel can switch to another thread.
 
-Thread Safety: 
-
-Threads share the same memory space as the parent process, including its code, data, and resources. However, threads have their own execution context, including a program counter, registers, and stack. Each thread has its own dedicated stack, while all threads within a process share the same heap memory
-
-The shared nature of the heap is why synchronization mechanisms (like lock, Monitor, Mutex, and Semaphore) are necessary in C#. Without them, multiple threads accessing and modifying shared heap data can lead to race conditions and data corruption. 
-
 links/videos:
 
 - [Multithreading in C#](https://medium.com/@yashdesai281/multithreading-in-c-b80332b777b1)
 
-## Async/await
+## Context switching
+
+Thread context switching is the CPU's process of pausing one thread, saving its execution state (like registers and program counter), and loading the state of another thread to continue execution, enabling multitasking within a single process.
+
+## Task and thread pool
 
 Async/await internals (Task vs ValueTask, thread pool)
 
-## Thread starvation
+## Blocking and non-blocking thread
 
-Thread starvation in C# occurs when a process runs out of available threads in its thread pool to handle new work items, leading to significant delays, increased latency, and potential application timeouts, even if the CPU usage is low
+Blocking means the thread is waiting, not that the CPU is idle. The CPU will run other threads or processes. 
 
-• 𝗖𝗮𝗻 𝗰𝗮𝘂𝘀𝗲 𝗧𝗵𝗿𝗲𝗮𝗱𝗣𝗼𝗼𝗹 𝘀𝘁𝗮𝗿𝘃𝗮𝘁𝗶𝗼𝗻 𝘂𝗻𝗱𝗲𝗿 l𝗼𝗮𝗱: The ThreadPool has limited threads. Under high concurrency, new tasks might wait a long time to be scheduled.
+If the blocked thread is the UI thread, the application becomes unresponsive, because input handling and rendering depend on that thread.
 
-• 𝗜𝗻𝗰𝗿𝗲𝗮𝘀𝗲𝘀 𝗹𝗮𝘁𝗲𝗻𝗰𝘆 𝘃𝗶𝗮 𝘁𝗵𝗿𝗲𝗮𝗱-𝘀𝘄𝗶𝘁𝗰𝗵𝗶𝗻𝗴: Moving work to another thread adds context-switch overhead — costly in high-throughput systems.
+Also, blocking threads can lead to thread starvation in systems that rely on a limited thread pool.
+
+When many threads are blocked waiting for I/O (such as database or network calls), available threads are exhausted, preventing new requests from being processed and significantly reducing application throughput.
 
 Examples:
 
 ```cs
-// Synchronous (blocking) - can cause thread starvation
+// Synchronous (blocking)
 var user = _db.Users.First();
 
 // Asynchronous (non-blocking) - recommended
@@ -171,6 +172,14 @@ var users = GetUsersAsync().Result;
 // Asynchronous (non-blocking) - recommended
 var users = await GetUsersAsync();
 ```
+
+## Thread Safety: 
+
+Threads share the same memory space as the parent process, including its code, data, and resources. However, threads have their own execution context, including a program counter, registers, and stack. Each thread has its own dedicated stack, while all threads within a process share the same heap memory
+
+The shared nature of the heap is why synchronization mechanisms (like lock, Monitor, Mutex, and Semaphore) are necessary in C#. Without them, multiple threads accessing and modifying shared heap data can lead to race conditions and data corruption. 
+
+## Synchronization mechanisms
 
 ## Exception handling best practices
 
