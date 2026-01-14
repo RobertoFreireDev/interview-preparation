@@ -67,6 +67,17 @@ links/videos:
 - [WHY IS THE HEAP SO SLOW?](https://www.youtube.com/watch?v=ioJkA7Mw2-U)
 - [Inside C#: Stack & Heap, Value Types, Boxing, stackalloc + More](https://www.youtube.com/watch?v=cCsVY0Ixx04)
 
+## Flaws in structs
+
+Not everything should be allocated on the stack:
+
+- the stack is limited in size; excessive usage can lead to a stack overflow.
+- when a function returns, its stack frame is destroyed, and all local stack data is released.
+- structs are value types, so they are copied by value, which can be inefficient for large structs.
+
+Note: struct can be passed by reference using ref, in or out
+
+
 ## Threads and Process
 
 A running program (process) needs key resources like CPU registers (for fast data storage), a Program Counter (to track the next instruction), and a stack (for function calls, local variables, and return addresses) to manage its execution, along with other elements like memory and I/O. These elements define the process's state and allow the operating system to manage and switch between different tasks efficiently
