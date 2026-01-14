@@ -77,6 +77,44 @@ Not everything should be allocated on the stack:
 
 Note: struct can be passed by reference using ref, in or out
 
+# Boxing and Unboxing
+
+Boxing is the process of converting a C# value type (like int, char, or struct) to a reference type (object or an interface)
+
+```cs
+int x = 10;
+object o = x; // boxing
+
+void Log(object value) { }
+Log(5); // boxing occurs
+```
+
+- Heap allocation → slower than stack allocation
+- GC pressure → more frequent garbage collections
+- Extra copy → defeats the purpose of value types
+
+Unboxing is the reverse process, where a boxed object is explicitly converted back to its original value type
+
+```cs
+int y = (int)o; // unboxing
+```
+
+- Extra copy
+- Runtime cost (type checking)
+- InvalidCastException risk
+
+
+To avoid boxing/unboxing, use generics
+
+```cs
+var list = new ArrayList();
+list.Add(10); // boxing
+```
+
+```cs
+var list = new List<int>();
+list.Add(10);
+```
 
 ## Threads and Process
 
