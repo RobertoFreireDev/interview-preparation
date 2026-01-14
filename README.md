@@ -175,7 +175,7 @@ var users = GetUsersAsync().Result;
 var users = await GetUsersAsync();
 ```
 
-## Thread Safety: 
+## Thread Safety
 
 Threads share the same memory space as the parent process, including its code, data, and resources. However, threads have their own execution context, including a program counter, registers, and stack. Each thread has its own dedicated stack, while all threads within a process share the same heap memory
 
@@ -215,6 +215,8 @@ finally
 ```
 
 ## Exception handling best practices
+
+https://github.com/RobertoFreireDev/Exception-handling-in-a-DotNet-Web-API
 
 ##  Dependency Injection (lifetimes, scopes, pitfalls)
 
