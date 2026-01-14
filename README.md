@@ -273,6 +273,8 @@ https://github.com/RobertoFreireDev/Algorithms_Data_Structures
 * Idempotency strategies
 * API Gateway patterns
 
+https://github.com/RobertoFreireDev/Clean-Architecture-dotnet
+
 # Data & Persistence
 
 * Entity Framework Core internals
